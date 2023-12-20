@@ -1,0 +1,100 @@
+body {
+    margin: 300px;
+    border: 2px;
+    border-color: aqua;
+    width: 350px;
+    height: auto;
+    position: relative;
+    padding: 0px;
+    border-style: dashed;
+}
+.div-utama{
+    background: url(Night\ Stars.jpeg);
+    background-size: cover;
+    padding: 50px;
+    border-color: aqua;
+    border-style: solid;
+}
+.div2{
+    background:  url(Gunung.jpeg);
+    display: inline block;
+    padding: 20px;
+    border: 5px;
+    border-radius: 5px;
+    border-color: wheat;
+    box-sizing: border-box;
+    width: auto;
+    border-style: solid;
+    
+}
+
+summary{
+    color: wheat;
+    cursor: pointer;
+}
+li{
+    color: wheat
+ 
+}
+li::marker{
+    color: black;
+}
+
+summary::marker {
+
+    color: black;
+
+ 
+}
+details[open]summary::marker {
+    color: black;
+
+}
+.tombol{
+    background:url(Gunung.jpeg);
+    border: none;
+    border-radius: 5px;
+    color: wheat;
+    padding: 10px 20px 10px 10px;
+    cursor: pointer;
+    
+}
+.tombol:hover{
+    transform: scale(1.11);
+    
+    transform-style: flat;
+    color: black;
+    text-transform: bold;
+    background-color: blue;
+}
+nav{
+    padding: 20px ;
+    box-sizing: border-box;
+    box-shadow: 10ch;
+    background:url(Night\ Stars.jpeg);
+    background-size: cover;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+    font-display: 20px;
+    font-weight: bold;
+    border-style: solid;
+    border-color: aqua;
+}
+.a1{
+    display:inline-block;
+    background-color: white;
+    border: 1px;
+    border-style: solid;
+    cursor: pointer;
+    padding: 20px 0;
+}
+.a1 a{
+    box-sizing: border-box;
+    padding: 20px;
+    color: black;
+}
+.a1 a:hover{
+    color: aliceblue;
+    box-shadow: 10ch;
+    background: url(Night\ Stars.jpeg);
+}
