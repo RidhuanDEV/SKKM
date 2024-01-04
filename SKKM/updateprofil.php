@@ -1,4 +1,9 @@
 <?php
+require_once "fungsi.php";
+if(!isset($_SESSION['user_id'])){
+    header('location:login.php');
+}
+admin();
 $errors = [];
 include 'koneksi.php';
     $id = $_GET['nrp'];
@@ -11,28 +16,27 @@ if (isset($_POST['submit'])) {
     // Validate input
     $nrp = $_POST['nrp'];
     $nama = $_POST['nama'];
-    $password = $_POST['password'];
-    $encryptPass = md5($password);
     $alamat = $_POST['alamat'];
     $email = $_POST['email'];
     $lahir = $_POST['lahir'];
     $angkatan = $_POST['angkatan'];
 
      // membuat query
-
-        $querySQL = "UPDATE datamahasiswa SET nrp = '$nrp',nama = '$nama',password = '$encryptPass',alamat = '$alamat',email = '$email',tgl_lahir = '$lahir',angkatan = '$angkatan' WHERE nrp = '$id'";
+     $sqlQuerys = "SELECT * FROM datamahasiswa WHERE nrp = '$nrp'";
+     $results = $koneksi->query($sqlQuery);
+        if($results->num_rows == 0){
+        $querySQL = "UPDATE datamahasiswa SET nrp = '$nrp',nama = '$nama',alamat = '$alamat',email = '$email',tgl_lahir = '$lahir',angkatan = '$angkatan' WHERE nrp = '$id'";
         $Eksekusi = $koneksi->query($querySQL);
-
-        
-        if ($Eksekusi) {
-            echo "Update successful!";
-        } else {
-            echo "Error updating record: " . $koneksi->error;
+         // kembali ke halaman index
+         header('Location: index.php');
+        }else{
+            echo "<script type='text/javascript'>alert('NRP Tersebut sudah di pakai !');</script>";
+           
         }
+        
+       
 
-
-        // kembali ke halaman index
-        header('Location: halamanadmin.php');
+       
     }
     if (empty($nrp)) {
         $errors[] = "NRP is required.";
@@ -70,20 +74,26 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="goput.css" rel="stylesheet">
 </head>
+<header class="w-full h-20 bg-slate-900 border flex border-black">
+    <div class="w-1/6 h-full justify-center flex items-center ">
+        <img src="LOGOITI.png" alt="ITI" class="w-16 h-16">
+    </div>
+    <div class="w-5/6 h-full flex">
+        <div class="w-5/6 h-full flex items-center">
+            <p class="text-white text-4xl font-mono">SATUAN KREDIT KEGIATAN MAHASISWA ITI</p>
+        </div>
+        <div class="w-1/6 h-full flex items-center justify-center">
+            <a href="index.php"
+                class="border-2 border-white p-2 text-white text-2xl font-mono bg-green-500 rounded-3xl ring-offset-white hover:bg-green-600 hover:scale-105 hover:rounded-full active:scale-90">Kembali</a>
+        </div>
+    </div>
+</header>
 
 <body class="bg-white">
-
-    <header class="bg-blue-500 p-4 text-white">
-        <h1 class="text-2xl pb-2">Halaman Tambah Data</h1>
-        <nav>
-            <a href="index.php" class="text-white border-2 border-white rounded-lg p-4 flex justify-center hover:bg-green-300">Home</a>
-        </nav>
-    </header>
-
-    <section class="container mx-auto my-2x p-4 bg-white rounded-md shadow-md">
-        <h2 class="text-xl font-bold mb-4">Input Data Mahasiswa</h2>
+    <section class="container mx-auto my-2x p-4 bg-white rounded-md shadow-md w-full h-[580px] ">
+        <h2 class="text-xl font-bold mb-4">Ubah Data Mahasiswa</h2>
 
         <form action="" method="post">
             <table class="w-full border-2 border-black">
@@ -95,11 +105,6 @@ if (isset($_POST['submit'])) {
                 <tr>
                     <td class="p-2"><label for="nama" class="block">Nama</label></td>
                     <td class="p-2"><input type="text" name="nama" id="nama" value="<?php echo $row['nama']?>"
-                     class="w-3/4 p-2 border-2 border-black rounded-md" required></td>
-                </tr>
-                <tr>
-                    <td class="p-2"><label for="password" class="block">Password</label></td>
-                    <td class="p-2"><input type="text" name="password" id="password" value="<?php echo $row['password']?>"
                      class="w-3/4 p-2 border-2 border-black rounded-md" required></td>
                 </tr>
                 <tr>
@@ -131,5 +136,8 @@ if (isset($_POST['submit'])) {
     </section>
 
 </body>
-
+<footer class="bg-gray-900 text-center w-full">
+    <h3 class="pl-4 pt-4 text-white">Satuan Kredit Kegiatan Mahasiswa (SKKM) Institut Teknologi Indonesia</h3>
+    <h3 class="pl-4 pb-4 text-white">&COPY; Copyright 2023 Institut Teknologi Indonesia. All Right Reserved.</h3>
+</footer>
 </html>
