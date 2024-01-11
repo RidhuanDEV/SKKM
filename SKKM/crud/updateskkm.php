@@ -141,10 +141,7 @@ if (isset($_POST['submit'])) {
         $errors[] = "Dokumen is required.";
     }
     if (!empty($errors)) {
-            // echo "<script type='text/javascript'>alert('Mohon isi semua persyaratan dengan benar ! ~~~~~~~~~~~~~~ Harap Cek Persyaratan Pengajuan SKKM Terlebih dahulu !');</script>";
-        foreach ($errors as $eror){
-            echo $eror;
-        }
+        echo "<script type='text/javascript'>alert('Mohon isi semua persyaratan dengan benar ! ~~~~~~~~~~~~~~ Harap Cek Persyaratan Pengajuan SKKM Terlebih dahulu !');</script>";
         }else{
     // Update database with file path
     $querySQL = "INSERT INTO penyimpanan (`nrp`,`id`,`kegiatan`,`satuan`,`tingkat`,`dokumen`,`NilaiSKKM`) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -245,9 +242,7 @@ if (isset($_POST['submit'])) {
         <div class='rounded-md p-2 bg-white my-8 pl-1.5 w-full text-xl flex'>
             <label for=".'satuan'." class='p-1 pr-60'>Satuan</label>
             <select name=".'satuan'." id=".'satuan'." class='border-2 border-black w-96 cursor-pointer' required>
-                <option value=".'Semester'.">Semester</option>
                 <option value=".'Kegiatan'.">Kegiatan</option>
-                <option value=".'Tahun'.">Tahun</option>
             </select>
         </div>
         <div class='rounded-md p-2 bg-white my-8 pl-1.5 w-full gap-32 text-xl flex'>
@@ -391,7 +386,6 @@ if (isset($_POST['submit'])) {
         <select name=".'satuan'." id=".'satuan'." class='border-2 border-black w-96 cursor-pointer' required>
             <option value=".'Semester'.">Semester</option>
             <option value=".'Kegiatan'.">Kegiatan</option>
-            <option value=".'Tahun'.">Tahun</option>
         </select>
     </div>
     <div class='rounded-md p-2 bg-white my-8 pl-1.5 w-full gap-32 text-xl flex'>
@@ -519,9 +513,7 @@ if (isset($_POST['submit'])) {
         <div class='rounded-md p-2 bg-white my-8 pl-1.5 w-full text-xl flex'>
         <label for=".'satuan'." class='p-1 pr-60'>Satuan</label>
         <select name=".'satuan'." id=".'satuan'." class='border-2 border-black w-96 cursor-pointer' required>
-                <option value=".'Semester'.">Semester</option>
                 <option value=".'Kegiatan'.">Kegiatan</option>
-                <option value=".'Tahun'.">Tahun</option>
             </select>
         </div>
         <div class='rounded-md p-2 bg-white my-8 pl-1.5 w-full gap-32 text-xl flex'>
