@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
         $nilaiSKKM = 20;
     }else if ($tingkat == 'Proposal'){
         $nilaiSKKM = 10;
-    }else if ($tingkat == 'LolosInternal'){
+    }else if ($tingkat == 'Lolos Internal'){
         $nilaiSKKM = 20;
     }else if ($tingkat == 'Pendanaan'){
         $nilaiSKKM = 40;
@@ -77,15 +77,15 @@ if (isset($_POST['submit'])) {
         $nilaiSKKM = 30;
     }else if ($tingkat == 'Internasional'){
         $nilaiSKKM = 50;
-    }else if ($Kegiatan == 'PKKMB'){
+    }else if ($tingkat == 'PKKMB'){
         $nilaiSKKM = 20;
-    }else if ($Kegiatan == 'Asisten Dosen/Lab'){
+    }else if ($tingkat == 'Asisten Dosen/Lab'){
         $nilaiSKKM = 25;
-    }else if ($Kegiatan == 'Relawan Anti Narkoba'){
+    }else if ($tingkat == 'Relawan Anti Narkoba'){
         $nilaiSKKM = 10;
-    }else if ($Kegiatan == 'Satgas PPKS'){
+    }else if ($tingkat == 'Satgas PPKS'){
         $nilaiSKKM = 10;
-    }else if ($Kegiatan == 'Panitia Adhoc ITI'){
+    }else if ($tingkat == 'Panitia Adhoc ITI'){
         $nilaiSKKM = 10;
     }else if ($tingkat == 'Anggota'){
         $nilaiSKKM = 5;
@@ -95,9 +95,9 @@ if (isset($_POST['submit'])) {
         $nilaiSKKM = 20;
     }else if ($tingkat == 'Ketua'){
         $nilaiSKKM = 25;
-    }else if ($tingkat == 'Koordinator/wakilketua/sekretaris/bendahara'){
+    }else if ($tingkat == 'Koordinator/wakil ketua/sekretaris/bendahara'){
         $nilaiSKKM = 10;
-    }else if ($tingkat == 'KetuaPelaksana'){
+    }else if ($tingkat == 'Ketua Pelaksana'){
         $nilaiSKKM = 15;
     }else if ($kegiatan == 'Mengikuti Seminar Sebagai Peserta'){
         $nilaiSKKM = 5;
@@ -249,7 +249,7 @@ if (isset($_POST['submit'])) {
             <label for=".'tingkat'.">Tingkat Prestasi</label>
             <select name=".'tingkat'." id=".'tingkat'." required class=' w-96 border-2 border-black cursor-pointer'>
                 <option value=".'Proposal'.">Proposal</option>
-                <option value=".'LolosInternal'.">Lolos Internal</option>
+                <option value=".'Lolos Internal'.">Lolos Internal</option>
                 <option value=".'Pendanaan'.">Pendanaan</option>
                 <option value=".'NASIONAL'.">Nasional</option>
             </select>
@@ -465,8 +465,8 @@ if (isset($_POST['submit'])) {
         <label for=".'tingkat'.">Tingkat Panitia Kegiatan Ormawa</label>
             <select name=".'tingkat'." id=".'tingkat'." required class='border-2 border-black cursor-pointer'>
                 <option value=".'Anggota'.">Anggota</option>
-                <option value=".'Koordinator/wakilketua/sekretaris/bendahara'.">Koordinator/wakilketua/sekretaris/bendahara</option>
-                <option value=".'KetuaPelaksana'.">Ketua</option>
+                <option value=".'Koordinator/wakil ketua/sekretaris/bendahara'.">Koordinator/wakilketua/sekretaris/bendahara</option>
+                <option value=".'Ketua Pelaksana'.">Ketua</option>
             </select>
     </div>";
     }
